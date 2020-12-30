@@ -38,7 +38,7 @@ namespace Net_5_REST_API.Repositories
 
         public void DeleteItem(Guid id)
         {
-            var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
+            var index = items.FindIndex(existingItem => existingItem.Id == id);
             items.RemoveAt(index);
         }
 
