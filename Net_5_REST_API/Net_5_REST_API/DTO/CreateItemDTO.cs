@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Net_5_REST_API.DTO
 {
-    public record ItemDTO
+    public record CreateItemDTO
     {
-        public Guid Id { get; init; }
         public string Name { get; init; }
         public decimal Price { get; init; }
-        public DateTime CreationDate { get; init; }
     }
 }
