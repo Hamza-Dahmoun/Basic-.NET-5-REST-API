@@ -42,5 +42,21 @@ namespace Net_5_REST_API.Controllers
                 return item.AsDTO();
             }
         }
+
+        [HttpPost]
+        public ActionResult<ItemDTO> CreateItem(CreateItemDTO itemDTO)
+        {
+            Item item = new()
+            {
+                Id = Guid.NewGuid(),
+                CreationDate = DateTime.UtcNow,
+                Name = itemDTO.Name,
+                Price = itemDTO.Price
+            };
+
+            repository.CreateItem(item);
+
+            return CreatedAtAction(nameof(GetItem), new { id=item.Id}, item.AsDTO());
+        }
     }
 }
