@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Net_5_REST_API.DTO;
 using Net_5_REST_API.Entities;
 using Net_5_REST_API.Repositories;
 using System;
@@ -22,14 +23,14 @@ namespace Net_5_REST_API.Controllers
 
         //Item
         [HttpGet]
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<ItemDTO> GetItems()
         {
-            return repository.GetItems();
+            return repository.GetItems().Select(item => item.AsDTO());
         }
 
         //Item/{id}
         [HttpGet("{id}")]
-        public ActionResult<Item> GetItem(Guid id)
+        public ActionResult<ItemDTO> GetItem(Guid id)
         {
             var item = repository.GetItem(id);
             if (item == null)
@@ -38,7 +39,7 @@ namespace Net_5_REST_API.Controllers
             }
             else
             {
-                return item;
+                return item.AsDTO();
             }
         }
     }
