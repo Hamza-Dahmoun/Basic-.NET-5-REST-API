@@ -13,11 +13,11 @@ namespace Net_5_REST_API.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        private readonly ItemRepository repository;
+        private readonly IItemRepository repository;
 
-        public ItemController()
+        public ItemController(IItemRepository repository)
         {
-            repository = new ItemRepository();
+            this.repository = repository;
         }
 
         //Item
