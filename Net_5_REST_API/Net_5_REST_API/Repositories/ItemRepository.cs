@@ -24,5 +24,10 @@ namespace Net_5_REST_API.Repositories
         {
             return items.Where(i => i.Id == Id).SingleOrDefault();
         }
+
+        public void CreateItem(Item item)
+        {
+            items.Add(item);
+        }
     }
 }
