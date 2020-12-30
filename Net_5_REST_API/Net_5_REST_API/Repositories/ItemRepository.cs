@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Net_5_REST_API.Repositories
 {
-    public class ItemRepository
+    public class ItemRepository : IItemRepository
     {
         private readonly List<Item> items = new()
         {
-            new Item {Id=Guid.NewGuid(), Name="Potion", Price=9, CreationDate=DateTime.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Potion", Price = 9, CreationDate = DateTime.UtcNow },
             new Item { Id = Guid.NewGuid(), Name = "Iron Sword", Price = 20, CreationDate = DateTime.UtcNow },
             new Item { Id = Guid.NewGuid(), Name = "Bronze Shield", Price = 18, CreationDate = DateTime.UtcNow },
         };
