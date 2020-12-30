@@ -30,10 +30,11 @@ namespace Net_5_REST_API.Repositories
             items.Add(item);
         }
 
-        public void UpdateItem(Guid id, Item item)
+        public void UpdateItem(Item item)
         {
-            var index = items.FindIndex(existingItem => existingItem.Id == id);
+            var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
             items[index] = item;
         }
+
     }
 }
